@@ -15,10 +15,6 @@ const cutPart = (time, index) => {
 	const [start, end] = time;
 	const command = `C:/ffmpeg/bin/ffmpeg.exe -ss ${start} -to ${end} -i ${folder}${input}.mp4 -c copy -avoid_negative_ts make_zero -fflags +genpts ${folder}${output}${index}.mp4`;
 	execCommand(command);
-
-	// const reencodeCommand = `C:/ffmpeg/bin/ffmpeg.exe -i ${folder}${output}${index}-big.mp4 -vcodec libx264 -crf 28 ${folder}${output}${index}.mp4 `;
-	// console.log(reencodeCommand);
-	// execCommand(reencodeCommand);
 };
 
 const concatParts = () => {
@@ -50,8 +46,8 @@ const encodeForYoutube = () => {
 	execCommand(encodeCommand)
 };
 
-// times.forEach(cutPart);
-// concatParts();
-// times.forEach(removePart);
-// fixTimestamps();
+times.forEach(cutPart);
+concatParts();
+times.forEach(removePart);
+fixTimestamps();
 encodeForYoutube();
