@@ -49,5 +49,5 @@ const encodeForYoutube = () => {
 times.forEach(cutPart);
 concatParts();
 times.forEach(removePart);
-fixTimestamps();
-encodeForYoutube();
+// fixTimestamps();
+// encodeForYoutube();
